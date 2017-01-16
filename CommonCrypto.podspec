@@ -7,17 +7,12 @@ Pod::Spec.new do |s|
   s.license         = { :type => 'Public'}
   s.author          = 'Kevin Musselman'
   s.platform        = :ios, '9.0'
-  s.source          = { :git => 'git@github.com:kmussel/commoncrypto.git', branch: "master"} #tag: "#{s.version}"
+  s.source          = { :git => 'git@github.com:kmussel/commoncrypto.git', tag: "#{s.version}" }
   s.module_name     = 'CommonCrypto'
   s.platforms       = { :ios => "9.0" }
-  s.source_files    = "Sources/**/*"
-  s.default_subspec = 'default'
+  s.source_files    = "Sources/**/*.swift"
   s.pod_target_xcconfig = { 'SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=Debug][sdk=*][arch=*]' => 'DEBUG' }
 
-  s.subspec 'default' do |ss|
-    ss.source_files   = 'Sources/CommonCrypto/**/*'
-     
-  end
   s.xcconfig         = { 'HEADER_SEARCH_PATHS' =>           '$(SDKROOT)/usr/include/CommonCrypto/CommonCrypto.h'}
   s.preserve_paths = 'CocoaPods/**/*'
   s.pod_target_xcconfig = {
@@ -29,4 +24,7 @@ Pod::Spec.new do |s|
     'SWIFT_INCLUDE_PATHS[sdk=watchos*]'          => '$(PODS_ROOT)/CommonCrypto/CocoaPods/watchos',
     'SWIFT_INCLUDE_PATHS[sdk=watchsimulator*]'   => '$(PODS_ROOT)/CommonCrypto/CocoaPods/watchsimulator'
   }
+  s.prepare_command = <<-CMD
+               ./CocoaPods/injectXcodePath.sh
+  CMD
 end
