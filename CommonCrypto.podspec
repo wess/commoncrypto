@@ -3,11 +3,11 @@ Pod::Spec.new do |s|
   s.version         = '0.0.1'
   s.summary         = 'Swift module map for CommonCrypto.'
   s.description     = 'Module maps for importing CommonCrypto C libs to Swift.'
-  s.homepage        = 'https://github.com/kmussel/commoncrypto'
+  s.homepage        = 'https://github.com/wess/commoncrypto'
   s.license         = { :type => 'Public'}
   s.author          = 'Kevin Musselman'
   s.platform        = :ios, '9.0'
-  s.source          = { :git => 'git@github.com:kmussel/commoncrypto.git', tag: "#{s.version}" }
+  s.source          = { :git => 'git@github.com:wess/commoncrypto.git', tag: "#{s.version}" }
   s.module_name     = 'CommonCrypto'
   s.platforms       = { :ios => "9.0" }
   s.source_files    = "Sources/**/*.swift"
